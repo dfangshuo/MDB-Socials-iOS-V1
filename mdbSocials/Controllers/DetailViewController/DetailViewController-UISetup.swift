@@ -12,13 +12,19 @@ import MapKit
 
 extension DetailViewController {
     
+    func setupScroll() {
+        scrollView = UIScrollView(frame:CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width + 700)
+        view.addSubview(scrollView)
+    }
+    
     func setupView() {
         eventName = UILabel(frame: CGRect(x: 13, y: 60, width: view.frame.width - 20, height: 40))
         eventName.text = postObjs[indice].eventTitle!
         eventName.clipsToBounds = true
         eventName.adjustsFontSizeToFitWidth = true
         eventName.font = eventName.font!.withSize(38)
-        view.addSubview(eventName)
+        scrollView.addSubview(eventName)
         
         posterName = UILabel(frame: CGRect(x: 13, y: 100, width: view.frame.width - 20, height: 40))
         posterName.text = "by \(postObjs[indice].poster!)"
@@ -26,9 +32,9 @@ extension DetailViewController {
         posterName.adjustsFontSizeToFitWidth = true
         posterName.font = posterName.font!.withSize(25)
         posterName.textColor = HexColor("696969")
-        view.addSubview(posterName)
+        scrollView.addSubview(posterName)
         
-        eventImage = UIImageView(frame: CGRect(x: 13, y: 140, width: UIScreen.main.bounds.width - 25, height: UIScreen.main.bounds.width - 170))
+        eventImage = UIImageView(frame: CGRect(x: 13, y: 140, width: UIScreen.main.bounds.width - 25, height: UIScreen.main.bounds.width - 160))
         eventImage.image = #imageLiteral(resourceName: "MDB Cover")
         eventImage.layer.cornerRadius = 10
         eventImage.clipsToBounds = true
@@ -40,37 +46,31 @@ extension DetailViewController {
         FirebaseHelper.downloadPic(withURL:postObjs[indice].imageUrl!).then { img in
             self.eventImage.image = img
         }
-        view.addSubview(eventImage)
-        
-        weather = UILabel(frame: CGRect(x: 79, y: 515, width: view.frame.width-16, height: 20))
-        weather.clipsToBounds = true
-        weather.textColor = HexColor("000000")
-        weather.font = UIFont.boldSystemFont(ofSize: 20)
-        view.addSubview(weather)
+        scrollView.addSubview(eventImage)
         
         //x: 101
-        dateTime = UILabel(frame: CGRect(x: 13, y: 425, width: view.frame.width-16, height: 20))
+        dateTime = UILabel(frame: CGRect(x: 101, y: 410, width: self.view.frame.width-16, height: 20))
         dateTime.text = postObjs[indice].dateSelected!
         dateTime.clipsToBounds = true
         dateTime.textColor = HexColor("000000")
         dateTime.font = UIFont.boldSystemFont(ofSize: 20)
-        view.addSubview(dateTime)
+        scrollView.addSubview(dateTime)
         //x: 125
-        interestLvl = UIButton(frame: CGRect(x: 13, y: 453, width: (view.frame.width-118)/2, height: 20))
+        interestLvl = UIButton(frame: CGRect(x: 0, y: 395, width: self.view.frame.width-16, height: 100))
         interestLvl.setTitle("People Interested: \(postObjs[indice].interestedUsers.count)" , for: .normal)
         interestLvl.titleLabel!.font = UIFont.boldSystemFont(ofSize: 15)
         interestLvl.addTarget(self, action: #selector(openInterestedUsersModalView), for: .touchUpInside)
         interestLvl.setTitleColor(HexColor("696969"), for: .normal)
-        view.addSubview(interestLvl)
+        scrollView.addSubview(interestLvl)
         
-        loc = MKMapView(frame:CGRect(x: view.frame.width/2+21, y: 415, width: 175, height: 70))
+        loc = MKMapView(frame:CGRect(x: 13, y: 740, width: UIScreen.main.bounds.width - 25, height: UIScreen.main.bounds.width - 170))
         loc.layer.cornerRadius = 10
         loc.mapType = .standard
         loc.clipsToBounds = true
-        view.addSubview(loc)
+        scrollView.addSubview(loc)
         addAnnotationToMap()
         
-        details = UILabel(frame: CGRect(x: 8, y: 495, width: self.view.frame.width-16, height: 65))
+        details = UILabel(frame: CGRect(x: 8, y: 465, width: self.view.frame.width-16, height: 150))
         details.layoutIfNeeded()
         details.text = postObjs[indice].eventDescribed!
         details.layer.borderColor = Constants.appColor.cgColor
@@ -79,9 +79,9 @@ extension DetailViewController {
         details.layer.masksToBounds = true
         details.clipsToBounds = true
         details.textColor = HexColor("696969")
-        view.addSubview(details)
+        scrollView.addSubview(details)
         
-        interestButton = UIButton(frame: CGRect(x: 10, y: 0.8 * UIScreen.main.bounds.height-18, width: UIScreen.main.bounds.width - 20, height: 45))
+        interestButton = UIButton(frame: CGRect(x: 10, y: 630, width: UIScreen.main.bounds.width - 20, height: 45))
         interestButton.layoutIfNeeded()
         
         if postObjs[indice].interestedUsers.contains(FirebaseHelper.currUserID()) {
@@ -94,20 +94,49 @@ extension DetailViewController {
         
         interestButton.addTarget(self, action: #selector(interestShown), for: .touchUpInside)
         interestButton.layer.cornerRadius = 10
-        view.addSubview(interestButton)
+        scrollView.addSubview(interestButton)
         
-        getMeThere = UIButton(frame: CGRect(x: 10, y: 0.8 * UIScreen.main.bounds.height+33, width: UIScreen.main.bounds.width - 20, height: 45))
+        getMeThere = UIButton(frame: CGRect(x: 10, y: 685, width: UIScreen.main.bounds.width - 20, height: 45))
         getMeThere.addTarget(self, action: #selector(openAMaps), for: .touchUpInside)
         getMeThere.setTitle("GET ME THERE G", for: .normal)
         getMeThere.backgroundColor = Constants.appColor
         getMeThere.layer.cornerRadius = 10
-        view.addSubview(getMeThere)
+        scrollView.addSubview(getMeThere)
         
-        cancel = UIButton(frame:CGRect(x: (view.frame.width - 125)/2, y: 675, width: 125, height: 30))
-        cancel.setTitleColor(Constants.appColor, for: .normal)
-        cancel.setTitle("back", for: .normal)
-        cancel.addTarget(self, action: #selector(backBack), for: .touchUpInside)
-        view.addSubview(cancel)
+        weather = UILabel(frame: CGRect(x: 48, y: UIScreen.main.bounds.width + 590, width: view.frame.width-16, height: 20))
+        weather.clipsToBounds = true
+        weather.textColor = HexColor("000000")
+        weather.font = UIFont.boldSystemFont(ofSize: 20)
+        scrollView.addSubview(weather)
+        
+        cloudStatus = UILabel(frame: CGRect(x: 127, y: UIScreen.main.bounds.width + 615, width: view.frame.width-16, height: 20))
+        cloudStatus.clipsToBounds = true
+        cloudStatus.textColor = HexColor("696969")
+        cloudStatus.font = UIFont.boldSystemFont(ofSize: 16)
+        scrollView.addSubview(cloudStatus)
+ 
+    }
+    
+    func makeNavBar() {
+        // NavBar
+        let filler = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 25))
+        filler.backgroundColor = Constants.appColor
+        view.addSubview(filler)
+        
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 15, width: view.frame.width, height: 30))
+        navigationBar.backgroundColor = Constants.appColor
+        
+        let navigationItem = UINavigationItem()
+        navigationItem.title = "MDB Socials"
+        
+        
+        let cancel = UIBarButtonItem(title: "back", style: .plain, target: self, action: #selector(backBack))
+        
+        navigationItem.leftBarButtonItem = cancel
+        
+        navigationBar.items = [navigationItem]
+        self.view.addSubview(navigationBar)
+        
     }
 }
 

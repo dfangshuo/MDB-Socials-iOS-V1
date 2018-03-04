@@ -47,7 +47,7 @@ extension NewSocialViewController {
         
         locPicker = UIButton(frame: CGRect(x: 10, y: 465, width: UIScreen.main.bounds.width - 20, height: 35))
         locPicker.layoutIfNeeded()
-        locPicker.setTitle("Where is this?", for: .normal)
+        locPicker.setTitle("Where might you want this to be?", for: .normal)
         locPicker.layer.cornerRadius = 10
         locPicker.backgroundColor = Constants.appTxt
         locPicker.addTarget(self, action: #selector(pickLoc), for: .touchUpInside)

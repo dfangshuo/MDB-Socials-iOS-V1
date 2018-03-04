@@ -17,6 +17,7 @@ import CoreLocation
 class DetailViewController: UIViewController {
         
     // layout
+    var scrollView: UIScrollView!
     var eventName: UILabel!
     var posterName: UILabel!
     var details: UILabel!
@@ -27,6 +28,7 @@ class DetailViewController: UIViewController {
     var loc: MKMapView!
     var getMeThere: UIButton!
     var weather: UILabel!
+    var cloudStatus: UILabel!
     
     // var info = Post();
     var postObjs: [Post] = []
@@ -38,12 +40,8 @@ class DetailViewController: UIViewController {
     var modalView: AKModalView!
     var interestedUsersView: InterestedUsersView!
     
-    // navigation
-    var cancel: UIButton!
-    
     var latitude: Double!
     var longitude: Double!
-    var status: String!
     var precip: String!
     var rainTime: Double!
     var locManager: CLLocationManager!
@@ -53,7 +51,10 @@ class DetailViewController: UIViewController {
         locManager = CLLocationManager()
         locManager.delegate = self
         locManager.desiredAccuracy = kCLLocationAccuracyBest
+        setupScroll()
         setupView()
+        makeNavBar()
+
         print("THIS IS")
         print(postObjs[indice].interestedUsers)
     }

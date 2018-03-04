@@ -22,16 +22,16 @@ extension DetailViewController: CLLocationManagerDelegate {
             if let json = response.result.value {
                 let json2 = JSON(json)
                 
-                self.status = json2["currently"]["summary"].stringValue
+                self.cloudStatus.text = "Cloud Status: \(json2["currently"]["summary"].stringValue)" 
                 self.precip = json2["minutely"]["data"][0]["precipType"].string
                 self.rainTime = json2["minutely"]["data"][0]["time"].double
                 
                 if self.precip != "rain" {
-                    self.weather.text = "It will not rain in the next hour."
+                    self.weather.text = "Sun's good all's good. Enjoy your day!"
 //                    self.weather.text = String(self.currentDesc)
 
                 } else {
-                    self.weather.text = "It will rain at " + String(describing: NSDate(timeIntervalSince1970: self.rainTime)) + "!"
+                    self.weather.text = "Uh oh.. It's gonna rain at " + String(describing: NSDate(timeIntervalSince1970: self.rainTime)) + "!"
                 }
             }
         }
