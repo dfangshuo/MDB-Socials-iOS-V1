@@ -9,12 +9,19 @@
 import UIKit
 import ChameleonFramework
 
+enum NSComparisonResult : Int {
+    case OrderedAscending
+    case OrderedSame
+    case OrderedDescending
+}
+
 class FeedViewController: UIViewController {
     
     var tableView: UITableView!
     var indexSelected: Int!
     
     var postDir: [Post] = []
+    var unfilteredPostDir: [Post] = []
     var nameArray: [String] = []
     // user model
     var currUser: Users!
@@ -24,9 +31,9 @@ class FeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        APIClient.fetchPosts(withBlock: {(posts) in
-            self.tableView.reloadData()
-        })
+//        APIClient.fetchPosts(withBlock: {(posts) in
+//            self.tableView.reloadData()
+//        })
 
 //        APIClient.fetchPosts().then{(posts) in
 //            self.tableView.reloadData()
@@ -50,7 +57,7 @@ class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // fetch user
 //        APIClient.fetchUser(id: (AuthUser?.uid)!).then{ x -> Void in
 //            print("X is ")
@@ -106,12 +113,110 @@ class FeedViewController: UIViewController {
 //                }
 //
 //        }
+//        let group = DispatchGroup()
+//        group.enter()
+//        APIClient.fetchPosts(withBlock: {(posts) in
+//            self.unfilteredPostDir.insert(posts, at: 0)
+//        })
+//        group.leave()
+//        group.notify(queue: .main) {
+//            for post in self.unfilteredPostDir {
+//                print("I ran")
+//                let dateFormatter: DateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
+//                let tempDate = dateFormatter.date(from: post.dateSelected!)
+//                let eventDate: NSDate = tempDate! as NSDate
+//                let compareResult: ComparisonResult = Date().compare(eventDate as Date)
+//                if compareResult != ComparisonResult.orderedDescending {
+//                    print("I'm inserting")
+//                    self.postDir.insert(post, at:0)
+//                }
+//            }
+//            self.tableView.reloadData()
+//        }
+        
+            
+//            print("THIS IS THE COUNT")
+//            print(self.unfilteredPostDir.count)
+//            group.enter()
+//            for post in self.unfilteredPostDir {
+//                print("I ran")
+//                let dateFormatter: DateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
+//                let tempDate = dateFormatter.date(from: post.dateSelected!)
+//                let eventDate: NSDate = tempDate! as NSDate
+//                let compareResult: ComparisonResult = Date().compare(eventDate as Date)
+//                if compareResult != ComparisonResult.orderedDescending {
+//                    print("I'm inserting")
+//                    self.postDir.insert(post, at:0)
+//                }
+//            }
+//            self.tableView.reloadData()
+//
+//        })
         
         APIClient.fetchPosts(withBlock: {(posts) in
-            self.postDir.insert(posts, at: 0)
+            self.unfilteredPostDir.insert(posts, at: 0)
+            self.postDir = []
+            print("THIS IS THE COUNT")
+            print(self.unfilteredPostDir.count)
+            for post in self.unfilteredPostDir {
+                print("I ran")
+                let dateFormatter: DateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
+                let tempDate = dateFormatter.date(from: post.dateSelected!)
+                let eventDate: NSDate = tempDate! as NSDate
+                let compareResult: ComparisonResult = Date().compare(eventDate as Date)
+                if compareResult != ComparisonResult.orderedDescending {
+                    print("I'm inserting")
+                    self.postDir.insert(post, at:0)
+                }
+            }
             self.tableView.reloadData()
         })
-    }
+        
+//        APIClient.fetchPosts(withBlock: {(posts) in
+//            self.unfilteredPostDir.insert(posts, at: 0)
+//            self.postDir = []
+//            print("THIS IS THE COUNT")
+//            print(self.unfilteredPostDir.count)
+//            for post in self.unfilteredPostDir {
+//                print("I ran")
+//                let dateFormatter: DateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "MM/dd/yyyy hh:mm a"
+//                let tempDate = dateFormatter.date(from: post.dateSelected!)
+//                let eventDate: NSDate = tempDate! as NSDate
+//                let compareResult: ComparisonResult = Date().compare(eventDate as Date)
+//                if compareResult != ComparisonResult.orderedDescending {
+////                    print("I COMPARED")
+////                    if self.postDir.contains(where: {(P) -> (Bool) in
+////                        print("I came in here")
+////                        if (P === post) {
+////                            print("I returned false")
+////                            return false
+////                        } else {
+////                            print("I returned true")
+////                            return true
+////                        }
+////                    }) {
+////                        print("I'm inserting")
+////                        self.postDir.insert(post, at:0)
+////                    }
+//
+//                    print("I'm inserting")
+//                    self.postDir.insert(post, at:0)
+//                }
+//            }
+//            self.tableView.reloadData()
+//
+//        })
+    
+    
+//    APIClient.fetchPosts(withBlock: {(posts) in
+    //    self.postDir.insert(posts, at: 0)
+    //    self.tableView.reloadData()
+//    })
+}
     
     func idToName(id: [String]) {
 //        var names: [String] = []

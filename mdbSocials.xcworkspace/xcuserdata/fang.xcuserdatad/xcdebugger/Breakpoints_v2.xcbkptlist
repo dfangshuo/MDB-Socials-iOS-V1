@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mdbSocials/Controllers/FeedViewController/FeedViewController.swift"
-            timestampString = "541824398.754674"
+            timestampString = "541837400.206061"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "idToName(id:)"
             landmarkType = "7">
             <Locations>
