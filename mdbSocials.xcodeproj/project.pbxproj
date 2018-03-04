@@ -29,6 +29,7 @@
 		325590332049DF3700264FE3 /* EventsViewController-TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325590322049DF3700264FE3 /* EventsViewController-TableView.swift */; };
 		325590352049DF4100264FE3 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325590342049DF4100264FE3 /* EventsTableViewCell.swift */; };
 		329ECC98204A23B000A8FCDA /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329ECC97204A23B000A8FCDA /* FirebaseHelper.swift */; };
+		32E85E8C204BDD57008D1FBD /* SignupViewController-UISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E85E8B204BDD57008D1FBD /* SignupViewController-UISetup.swift */; };
 		32FAF975203CFC95004DAC6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32FAF973203CFC95004DAC6D /* Main.storyboard */; };
 		32FAF977203CFC95004DAC6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32FAF976203CFC95004DAC6D /* Assets.xcassets */; };
 		32FAF97A203CFC95004DAC6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32FAF978203CFC95004DAC6D /* LaunchScreen.storyboard */; };
@@ -87,6 +88,7 @@
 		325590322049DF3700264FE3 /* EventsViewController-TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventsViewController-TableView.swift"; sourceTree = "<group>"; };
 		325590342049DF4100264FE3 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		329ECC97204A23B000A8FCDA /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		32E85E8B204BDD57008D1FBD /* SignupViewController-UISetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignupViewController-UISetup.swift"; sourceTree = "<group>"; };
 		32FAF96C203CFC95004DAC6D /* mdbSocials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mdbSocials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32FAF974203CFC95004DAC6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32FAF976203CFC95004DAC6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,7 +169,6 @@
 				32363C492048E07400AA860F /* DetailViewController */,
 				32363C402048DE9000AA860F /* LoginViewController */,
 				32363C432048DF3500AA860F /* SignupViewController */,
-				3249496C203F6D0C00144FE3 /* Cells */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				32FAF9A3203D0722004DAC6D /* SignupViewController.swift */,
+				32E85E8B204BDD57008D1FBD /* SignupViewController-UISetup.swift */,
 				32363C412048DF2D00AA860F /* SignupViewController-Delegate.swift */,
 			);
 			path = SignupViewController;
@@ -242,7 +244,6 @@
 			isa = PBXGroup;
 			children = (
 				32363C522048ECB100AA860F /* InterestedUsersView.swift */,
-				325590282049559500264FE3 /* InterestedUsersTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -267,6 +268,7 @@
 		3249496C203F6D0C00144FE3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				325590282049559500264FE3 /* InterestedUsersTableViewCell.swift */,
 				325590342049DF4100264FE3 /* EventsTableViewCell.swift */,
 				32FAF9AD203D6BD7004DAC6D /* FeedTableViewCell.swift */,
 			);
@@ -316,6 +318,7 @@
 		32FAF96E203CFC95004DAC6D /* mdbSocials */ = {
 			isa = PBXGroup;
 			children = (
+				3249496C203F6D0C00144FE3 /* Cells */,
 				329ECC962049E82800A8FCDA /* Resources */,
 				32363C512048EC9200AA860F /* Views */,
 				32363C3B20476D6E00AA860F /* Helpers */,
@@ -695,6 +698,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32363C572049018F00AA860F /* AKModalView.swift in Sources */,
+				32E85E8C204BDD57008D1FBD /* SignupViewController-UISetup.swift in Sources */,
 				32494963203E4F9100144FE3 /* AppDelegate.swift in Sources */,
 				32249716204BA19400281F3F /* DetailViewController-API.swift in Sources */,
 				32363C482048E02900AA860F /* DetailViewController-UISetup.swift in Sources */,

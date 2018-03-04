@@ -36,9 +36,5 @@
 	<string>1:180584124025:ios:acbfd75349c63144</string>
 	<key>DATABASE_URL</key>
 	<string>https://mdb-socials-9fa9a.firebaseio.com</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Will you allow this app to always know your location?</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Do you allow this app to know your current location?</string>
 </dict>
 </plist>

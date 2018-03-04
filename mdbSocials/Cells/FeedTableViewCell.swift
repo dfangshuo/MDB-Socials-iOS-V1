@@ -24,7 +24,6 @@ class FeedTableViewCell: UITableViewCell {
         
         name = UILabel(frame: CGRect(x:167, y:18, width: 240, height:30))
         name.textColor = UIColor.black
-//        name.text = "My title goes here"
         name.font = UIFont.boldSystemFont(ofSize: 25)
         contentView.addSubview(name)
         

@@ -16,9 +16,7 @@ class EventsViewController: UIViewController {
     var head: UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
-////        if tableView != nil {
         tableView.reloadData()
-////        }
     }
 
     override func viewDidLoad() {

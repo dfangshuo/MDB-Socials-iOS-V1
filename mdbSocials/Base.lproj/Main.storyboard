@@ -22,7 +22,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CzE-aJ-VyP"/>
                     <connections>
-                        <segue destination="0es-2Z-eEJ" kind="show" identifier="signUpToFeed" id="dUX-rH-MGy"/>
+                        <segue destination="OLw-4Q-tmA" kind="show" identifier="signUpToFeed" id="M3H-lF-Ri3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRa-HU-lgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7IQ-ah-84p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1866" y="840"/>
+            <point key="canvasLocation" x="-689" y="840"/>
         </scene>
         <!--New Social View Controller-->
         <scene sceneID="bH6-Ve-jdn">
@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxf-q6-Ns0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-732" y="105.69715142428787"/>
+            <point key="canvasLocation" x="-1866" y="1545"/>
         </scene>
         <!--Item-->
         <scene sceneID="RVL-Ml-pfE">
@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jll-Hm-ybO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-750" y="453"/>
+            <point key="canvasLocation" x="-690" y="106"/>
         </scene>
         <!--Item-->
         <scene sceneID="osZ-B9-02p">
@@ -95,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKF-DI-VyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1076" y="106"/>
+            <point key="canvasLocation" x="-1866" y="840"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -123,6 +123,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="OLw-4Q-tmA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MpW-xD-z5U">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -137,6 +138,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dUX-rH-MGy"/>
+        <segue reference="M3H-lF-Ri3"/>
     </inferredMetricsTieBreakers>
 </document>

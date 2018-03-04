@@ -20,7 +20,6 @@ class UserAuthHelper {
                 let name = dictOfInfo["name"] as! String
                 let username = dictOfInfo["username"] as!String
                 
-//                APIClient.createNewUser(id: (user?.uid)!, name: name, username: username, imageURL:)
                 userModel.name = name
                 userModel.id = (user?.uid)!
                 withBlock1()
@@ -37,12 +36,7 @@ class UserAuthHelper {
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
             if error == nil {
                 print("Log In Successful")
-        
-//                APIClient.fetchUser(id: (user?.uid)!, withBlock: { (snapshot) in
-//                    let user = Users(id: snapshot.key, userDict: snapshot.value as! [String : Any]?)
-//                    withBlock1(user)
-//                })
-//                loginUser.id = (user?.uid)!
+
                 successAction()
             }
             else {
@@ -55,7 +49,6 @@ class UserAuthHelper {
     // log out
     static func logOut() -> Promise<Bool> {
         return Promise { fulfill, reject in
-            //TODO: Log out using Firebase!
             let firebaseAuth = Auth.auth()
             do {
                 print("Log Out Successful")
@@ -66,17 +59,5 @@ class UserAuthHelper {
             }
         }
     }
-    
-//    static func logOut(withBlock: @escaping ()->()) {
-//        //TODO: Log out using Firebase!
-//        let firebaseAuth = Auth.auth()
-//        do {
-//            print("Log Out Successful")
-//            try firebaseAuth.signOut()
-//            withBlock()
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
-//    }
 }
 

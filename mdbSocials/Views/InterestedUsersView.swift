@@ -21,18 +21,6 @@ class InterestedUsersView: UIView {
         clipsToBounds = true
         backgroundColor = .white
         
-//        listOfNames = "A label\nwith\nmultiline text."
-//        print(listOfNames)
-//        titleLabel = UILabel(frame:CGRect(x: 10, y: 100, width: frame.width, height: 50))
-//        titleLabel.text =  "HERE'S WHO'S GOING"
-//        addSubview(titleLabel)
-//        
-//        names = UILabel(frame:CGRect(x: 20, y: 20, width: frame.width, height: frame.height))
-//        names.text = ""
-//        names.numberOfLines = 0
-//        names.lineBreakMode = .byTruncatingTail
-//        names.minimumScaleFactor = 0.8
-//        addSubview(names)
         makeTable()
         
         

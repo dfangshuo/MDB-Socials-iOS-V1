@@ -19,22 +19,6 @@ class APIClient {
     /**********************************************************/
     /****************** FETCH POSTS ***************************/
     /**********************************************************/
-
-//    static func fetchPosts() -> Promise<Post> {
-//        return Promise {fulfill, reject in
-//            let ref = Database.database().reference()
-//            ref.child("Posts").observe(.childAdded, with: { (snapshot) in
-//
-//                let json = JSON(snapshot.value)
-//                if var result = json.dictionaryObject {
-//                    result["key"] = snapshot.key
-//                    if let post = Post(JSON: result) {
-//                        fulfill(post)
-//                    }
-//                }
-//            })
-//        }
-//    }
     
     // no promises
     static func fetchPosts(withBlock: @escaping (Post) -> ()) {
@@ -49,8 +33,6 @@ class APIClient {
                     withBlock(post)
                 }
             }
-//            let post = Post(id: snapshot.key, postDict: snapshot.value as! [String : Any]?)
-//            withBlock(post)
         })
     }
     
@@ -91,22 +73,6 @@ class APIClient {
         }
     }
     
-//    static func fetchUser(id: String, withBlock: @escaping (Users) -> ()) {
-//        //TODO: Implement a method to fetch posts with Firebase!
-//        let ref = Database.database().reference()
-//        ref.child("Users").child(id).observeSingleEvent(of: .value, with: { (snapshot) in
-//            let json = JSON(snapshot.value)
-//            if var result = json.dictionaryObject {
-//                result["id"] = snapshot.key
-//                if let user = Users(JSON: result) {
-//                    withBlock(user)
-//                }
-//            }
-//            ////            let user = Users(id: snapshot.key, userDict: snapshot.value as! [String : Any]?)
-//            //            withBlock(user)
-//        })
-//    }
-    
     /**********************************************************/
     /******************** MAKE POST ***************************/
     /**********************************************************/
@@ -117,9 +83,7 @@ class APIClient {
     {
         // TWO: put these key-value pairs in a dictionary which you then...
         let newPost = ["title" : title, "text": postText, "poster": poster, "imageUrl": imageUrl, "posterId": posterId, "num": num, "timePicked": timePicked] as [String : Any]
-//        let toGo = Post(JSON:newPost)
         //THREE: upload into FB
-        
         let childUpdates = ["/\(key)/": newPost]
         postsRef.updateChildValues(childUpdates)
     }

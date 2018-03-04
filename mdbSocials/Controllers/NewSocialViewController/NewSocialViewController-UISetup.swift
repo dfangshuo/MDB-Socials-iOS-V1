@@ -89,7 +89,6 @@ extension NewSocialViewController {
         addImage.layer.cornerRadius = 10
         addImage.backgroundColor = Constants.appTxt
         view.addSubview(addImage)
-        //        view.bringSubview(toFront: addImage)
     }
 }
 

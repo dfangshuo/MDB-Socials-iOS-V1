@@ -46,7 +46,6 @@ class NewSocialViewController: UIViewController,UITextViewDelegate {
         super.viewDidLoad()
         setUpView()
         setUpEventView()
-        
     }
     
     @objc func eventMade() {
@@ -64,15 +63,7 @@ class NewSocialViewController: UIViewController,UITextViewDelegate {
                 Utils.throwError(info: "Is this really the time you want?", vc: self)
             } else {
                 dateSelected  = tempDate!
-//                print(self.postingUser.name)
-//                print(self.postingUser.id)
                 FirebaseHelper.makePostPicOptional(title: self.eventCalled, postText: self.eventDescribed, poster: self.postingUser.name!, posterId: self.postingUser.id!, num: [FirebaseHelper.currUserID()], timePicked: self.dateSelected, img: eventImageView.image)
-//
-//                if eventImageView.image == nil {
-//                    FirebaseHelper.makePostNoPic(postsRef: postsRef, key: key, title: self.eventCalled, postText: self.eventDescribed, poster: self.postingUser.name!, posterId: self.postingUser.id!, num: 1, timePicked: dateSelected)
-//                } else {
-//                    FirebaseHelper.uploadPicMakePost(postsRef: postsRef, key: key, title: self.eventCalled, postText: self.eventDescribed, poster: self.postingUser.name!, posterId: self.postingUser.id!, num: 1, timePicked: self.dateSelected, imgView: eventImageView)
-//                }
             }
         } else {
             Utils.throwError(info: "Please name this event", vc: self)
@@ -151,29 +142,5 @@ class NewSocialViewController: UIViewController,UITextViewDelegate {
         self.present(locationPicker, animated: true) {
             print("Selecting location")
         }
-
-//        navigationController?.pushViewController(locationPicker, animated: true)
-        
-        
-        
     }
-    
-//    @objc func selectLocation() {
-//        let locationPicker = LocationPickerViewController()
-//
-//        locationPicker.showCurrentLocationButton = true
-//        locationPicker.currentLocationButtonBackground = .MDBBlue
-//        locationPicker.showCurrentLocationInitially = true
-//        locationPicker.mapType = .standard
-//        locationPicker.useCurrentLocationAsHint = true
-//        locationPicker.resultRegionDistance = 500
-//        locationPicker.completion = { location in
-//            self.selectedLocation = location?.coordinate
-//        }
-//
-//        viewController.present(locationPicker, animated: true) {
-//            print(“Selecting location”)
-//        }
-//    }
-    
 }

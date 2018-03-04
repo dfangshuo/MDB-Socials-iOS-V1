@@ -36,7 +36,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         indexSelected = indexPath.row
-        print(indexSelected)
         
         self.performSegue(withIdentifier: "moreDetails", sender: self)
     }

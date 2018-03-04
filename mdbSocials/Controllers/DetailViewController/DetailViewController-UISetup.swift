@@ -38,24 +38,20 @@ extension DetailViewController {
         eventImage.image = #imageLiteral(resourceName: "MDB Cover")
         eventImage.layer.cornerRadius = 10
         eventImage.clipsToBounds = true
-        //FirebaseHelper.downloadPic(imageName:postObjs[indice].id!)
-//        promiseKeep()
-        //FirebaseHelper.downloadPic(imageName:postObjs[indice].id!, withBlock: { img in
-          //  self.eventImage.image = img
-        //})
+    
         FirebaseHelper.downloadPic(withURL:postObjs[indice].imageUrl!).then { img in
             self.eventImage.image = img
         }
         scrollView.addSubview(eventImage)
         
-        //x: 101
+        
         dateTime = UILabel(frame: CGRect(x: 101, y: 410, width: self.view.frame.width-16, height: 20))
         dateTime.text = postObjs[indice].dateSelected!
         dateTime.clipsToBounds = true
         dateTime.textColor = HexColor("000000")
         dateTime.font = UIFont.boldSystemFont(ofSize: 20)
         scrollView.addSubview(dateTime)
-        //x: 125
+        
         interestLvl = UIButton(frame: CGRect(x: 0, y: 395, width: self.view.frame.width-16, height: 100))
         interestLvl.setTitle("People Interested: \(postObjs[indice].interestedUsers.count)" , for: .normal)
         interestLvl.titleLabel!.font = UIFont.boldSystemFont(ofSize: 15)

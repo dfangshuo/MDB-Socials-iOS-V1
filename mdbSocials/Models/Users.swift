@@ -22,6 +22,10 @@ class Users: Mappable {
         
     }
     
+    init() {
+        
+    }
+    
     func mapping(map: Map) {
         name        <- map["name"]
         email       <- map["email"]
@@ -29,27 +33,10 @@ class Users: Mappable {
         interestedEvents   <- map["interestedEvents"]
     }
     
-//    init(id: String, userDict: [String:Any]?) {
-//        self.id = id
-//        if userDict != nil {
-//            if let name = userDict!["name"] as? String {
-//                self.name = name
-//            }
-//            if let email = userDict!["email"] as? String {
-//                self.email = email
-//            }
-//
-//        }
-//    }
-    
     static func getCurrentUser(withId: String, block: @escaping (Users) -> ()) {
         APIClient.fetchUser(id: withId).then{(users) in
             block(users)
         }
-        
-//        APIClient.fetchUser(id: withId, withBlock: {(users) in
-//            block(users)
-//        })
     }
     
     func addInterestedEvent(id: String) {

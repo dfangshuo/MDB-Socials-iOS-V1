@@ -5,6 +5,8 @@
 //  Created by Fang on 3/3/18.
 //  Copyright © 2018 fang. All rights reserved.
 //
+// @Source: Referenced https://github.com/srujayk/WeatherApp/tree/master/WeatherApp through google
+//
 
 import Foundation
 import CoreLocation
@@ -28,8 +30,6 @@ extension DetailViewController: CLLocationManagerDelegate {
                 
                 if self.precip != "rain" {
                     self.weather.text = "Sun's good all's good. Enjoy your day!"
-//                    self.weather.text = String(self.currentDesc)
-
                 } else {
                     self.weather.text = "Uh oh.. It's gonna rain at " + String(describing: NSDate(timeIntervalSince1970: self.rainTime)) + "!"
                 }
