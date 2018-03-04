@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "mdbSocials/Controllers/FeedViewController/FeedViewController.swift"
+            timestampString = "541824398.754674"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "idToName(id:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "mdbSocials.FeedViewController.idToName(id: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "mdbSocials"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fang/Desktop/iOSMiniProj4/mdbSocials/Controllers/FeedViewController/FeedViewController.swift"
+                  timestampString = "541815162.953667"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in mdbSocials.FeedViewController.idToName(id: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "mdbSocials"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fang/Desktop/iOSMiniProj4/mdbSocials/Controllers/FeedViewController/FeedViewController.swift"
+                  timestampString = "541815162.958239"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "895">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
